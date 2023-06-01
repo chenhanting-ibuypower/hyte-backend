@@ -49,11 +49,11 @@ export default function Home() {
         </div>
         <div className="flex space-x-3">
           <Link
-            href="/protected"
+            href="/admin"
             prefetch={false} // workaround until https://github.com/vercel/vercel/pull/8978 is deployed
             className="text-stone-400 underline hover:text-stone-200 transition-all"
           >
-            Protected Page
+            Admin Page
           </Link>
           <p className="text-white">·</p>
           <a

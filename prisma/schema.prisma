@@ -17,5 +17,18 @@ model User {
   id        Int     @id @default(autoincrement())
   email     String  @unique
   password  String
-  name  String? // New column
+  role      Role    @default(USER)
+  name      String?
+  level     Int?
+  activitiesCompleted Int @default(0)
+  totalHoursStudied   Int @default(0)
+  initialLevel        Int?
+  lastSignIn          DateTime  @default(now())
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+enum Role {
+  USER
+  ADMIN
 }
