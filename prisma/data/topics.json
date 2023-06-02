@@ -1,0 +1,252 @@
+[
+  {
+    "title": "Develop an algorithm to simulate the process of plant growth under different environmental conditions.",
+    "subject": "Science",
+    "level": "Normal"
+  },
+  {
+    "title": "How can algorithms be used to model the behavior of sound waves in different mediums?",
+    "subject": "Science",
+    "level": "Hard"
+  },
+  {
+    "title": "Design an algorithm to predict the population dynamics of a predator-prey ecosystem.",
+    "subject": "Science",
+    "level": "Normal"
+  },
+  {
+    "title": "Create an algorithm to simulate the spread of wildfire and analyze strategies for containment.",
+    "subject": "Science",
+    "level": "Hard"
+  },
+  {
+    "title": "How can algorithms be used to identify and classify different types of fossils based on their characteristics?",
+    "subject": "Science",
+    "level": "Expert"
+  },
+  {
+    "title": "Develop an algorithm to calculate the pH of a solution based on the concentrations of its ions.",
+    "subject": "Chemistry",
+    "level": "Normal"
+  },
+  {
+    "title": "Design an algorithm to predict the solubility of a compound in different solvents.",
+    "subject": "Chemistry",
+    "level": "Hard"
+  },
+  {
+    "title": "How can algorithms help in designing catalysts for specific chemical reactions?",
+    "subject": "Chemistry",
+    "level": "Expert"
+  },
+  {
+    "title": "Create an algorithm to analyze the spectroscopic data of a substance and determine its molecular structure.",
+    "subject": "Chemistry",
+    "level": "Expert"
+  },
+  {
+    "title": "Develop an algorithm to optimize the reaction conditions for maximum yield in a chemical synthesis.",
+    "subject": "Chemistry",
+    "level": "Expert"
+  },
+  {
+    "title": "How can algorithms generate automated summaries of written texts with key information?",
+    "subject": "English",
+    "level": "Normal"
+  },
+  {
+    "title": "Design an algorithm to detect and correct spelling and grammar errors in a piece of writing.",
+    "subject": "English",
+    "level": "Hard"
+  },
+  {
+    "title": "Create an algorithm that generates random plot twists or story elements for creative writing.",
+    "subject": "English",
+    "level": "Normal"
+  },
+  {
+    "title": "Develop an algorithm to analyze the sentiment and emotional tone of a piece of text.",
+    "subject": "English",
+    "level": "Hard"
+  },
+  {
+    "title": "How can algorithms assist in analyzing and generating music compositions based on different styles or moods?",
+    "subject": "English",
+    "level": "Expert"
+  },
+  {
+    "title": "Design an algorithm to solve a system of linear equations using matrix operations.",
+    "subject": "Math",
+    "level": "Normal"
+  },
+  {
+    "title": "Create an algorithm that generates random math puzzles or brain teasers for problem-solving practice.",
+    "subject": "Math",
+    "level": "Hard"
+  },
+  {
+    "title": "How can algorithms be used to perform data compression and encoding techniques, such as Huffman coding?",
+    "subject": "Math",
+    "level": "Hard"
+  },
+  {
+    "title": "Develop an algorithm to generate prime numbers within a given range efficiently.",
+    "subject": "Math",
+    "level": "Expert"
+  },
+  {
+    "title": "Design an algorithm to solve optimization problems, such as the traveling salesman problem.",
+    "subject": "Math",
+    "level": "Expert"
+  },
+  {
+    "title": "How can algorithms simulate and model the behavior of particles in different physical systems, such as gases or liquids?",
+    "subject": "Physics",
+    "level": "Normal"
+  },
+  {
+    "title": "Develop an algorithm to analyze and predict the motion of objects on an inclined plane.",
+    "subject": "Physics",
+    "level": "Hard"
+  },
+  {
+    "title": "Create an algorithm that simulates the behavior of electrical circuits and predicts voltage and current values.",
+    "subject": "Physics",
+    "level": "Hard"
+  },
+  {
+    "title": "Design an algorithm to calculate the force and motion of objects in magnetic fields.",
+    "subject": "Physics",
+    "level": "Expert"
+  },
+  {
+    "title": "How can algorithms be used to analyze and predict the behavior of waves, such as light or sound waves?",
+    "subject": "Physics",
+    "level": "Expert"
+  },
+  {
+    "title": "Develop an algorithm to model the process of erosion and its effects on landforms.",
+    "subject": "Science",
+    "level": "Normal"
+  },
+  {
+    "title": "How can algorithms simulate the behavior of waves in different mediums, such as water, air, or solids?",
+    "subject": "Science",
+    "level": "Hard"
+  },
+  {
+    "title": "Design an algorithm to predict the population growth of a species over time.",
+    "subject": "Science",
+    "level": "Normal"
+  },
+  {
+    "title": "Create an algorithm to simulate the spread of diseases in a population and analyze different containment strategies.",
+    "subject": "Science",
+    "level": "Hard"
+  },
+  {
+    "title": "How can algorithms be used to analyze and classify different types of rocks or minerals based on their properties?",
+    "subject": "Science",
+    "level": "Expert"
+  },
+  {
+    "title": "Develop an algorithm to calculate the concentration of a solute in a solution.",
+    "subject": "Chemistry",
+    "level": "Normal"
+  },
+  {
+    "title": "Design an algorithm to predict the outcome of a chemical reaction based on the reactants and reaction conditions.",
+    "subject": "Chemistry",
+    "level": "Hard"
+  },
+  {
+    "title": "How can algorithms help in designing new materials with specific properties, such as strength, conductivity, or flexibility?",
+    "subject": "Chemistry",
+    "level": "Expert"
+  },
+  {
+    "title": "Create an algorithm to identify the elements present in a compound based on its chemical formula.",
+    "subject": "Chemistry",
+    "level": "Expert"
+  },
+  {
+    "title": "Develop an algorithm to optimize the production process of a chemical compound, considering efficiency and cost.",
+    "subject": "Chemistry",
+    "level": "Expert"
+  },
+  {
+    "title": "How can algorithms generate automated translations between different languages?",
+    "subject": "English",
+    "level": "Normal"
+  },
+  {
+    "title": "Design an algorithm to analyze the complexity and readability of a written text.",
+    "subject": "English",
+    "level": "Hard"
+  },
+  {
+    "title": "Create an algorithm that generates creative and imaginative character names for stories or games.",
+    "subject": "English",
+    "level": "Normal"
+  },
+  {
+    "title": "Develop an algorithm to analyze the structure and themes in a piece of literature.",
+    "subject": "English",
+    "level": "Hard"
+  },
+  {
+    "title": "How can algorithms help in generating personalized recommendations for books, movies, or music based on individual preferences?",
+    "subject": "English",
+    "level": "Expert"
+  },
+  {
+    "title": "Design an algorithm to solve Sudoku puzzles of varying difficulty levels.",
+    "subject": "Math",
+    "level": "Normal"
+  },
+  {
+    "title": "Create an algorithm that generates fractal patterns, such as the Mandelbrot set.",
+    "subject": "Math",
+    "level": "Hard"
+  },
+  {
+    "title": "How can algorithms be used to calculate the shortest path between multiple locations on a map?",
+    "subject": "Math",
+    "level": "Hard"
+  },
+  {
+    "title": "Develop an algorithm to calculate the probability of different outcomes in a game of chance.",
+    "subject": "Math",
+    "level": "Expert"
+  },
+  {
+    "title": "Design an algorithm to factorize large numbers into their prime factors efficiently.",
+    "subject": "Math",
+    "level": "Expert"
+  },
+  {
+    "title": "How can algorithms simulate and model the behavior of different types of energy, such as kinetic, potential, or thermal energy?",
+    "subject": "Physics",
+    "level": "Normal"
+  },
+  {
+    "title": "Develop an algorithm to analyze and predict the motion of pendulums.",
+    "subject": "Physics",
+    "level": "Hard"
+  },
+  {
+    "title": "Create an algorithm that simulates the behavior of lenses and mirrors in optical systems.",
+    "subject": "Physics",
+    "level": "Hard"
+  },
+  {
+    "title": "Design an algorithm to calculate the velocity and acceleration of objects in free fall.",
+    "subject": "Physics",
+    "level": "Expert"
+  },
+  {
+    "title": "How can algorithms be used to model and predict the behavior of electric and magnetic fields?",
+    "subject": "Physics",
+    "level": "Expert"
+  }
+]

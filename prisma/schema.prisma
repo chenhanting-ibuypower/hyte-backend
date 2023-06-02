@@ -3,7 +3,8 @@
 
 generator client {
   provider = "prisma-client-js"
-  previewFeatures = ["jsonProtocol"]
+  // TODO: make sure what is that mean
+  previewFeatures = ["postgresqlExtensions"]
 }
 
 datasource db {
@@ -28,7 +29,33 @@ model User {
   updatedAt DateTime  @updatedAt
 }
 
+model Course {
+  id        Int       @id @default(autoincrement())
+  title     String    @unique
+  level     Level?    @default(Easy)
+  description String? @db.VarChar(2000)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  subject Subject
+}
+
 enum Role {
   USER
   ADMIN
+}
+
+enum Level {
+  Easy
+  Normal
+  Hard
+  Expert
+  Master
+}
+
+enum Subject {
+  Science
+  Math
+  English
+  Physics
+  Chemistry
 }

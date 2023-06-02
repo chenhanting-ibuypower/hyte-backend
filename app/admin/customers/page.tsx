@@ -1,18 +1,40 @@
+import prisma from "@/lib/prisma";
 import SignOut from "@/components/sign-out";
+import Table from "@/components/customers/table";
 
-export default function Home() {
+async function getCustomers(): Promise<Customer[]> {
+  return await prisma.user.findMany({
+    select: {
+      name: true,
+      email: true,
+      level: true,
+      activitiesCompleted: true,
+      totalHoursStudied: true,
+      initialLevel: true,
+      lastSignIn: true,
+      createdAt: true,
+    },
+    where: {},
+    distinct: ["name"],
+    take: 100,
+    skip: 0,
+  });
+}
+
+export default async function Home() {
+  const customers: Customer[] = await getCustomers();
+  const formattedCustomers = customers.map((customer) => ({
+    ...customer,
+    lastSignIn: customer.lastSignIn.toISOString(),
+    createdAt: customer.createdAt.toISOString(),
+  }));
+
+  console.log("customers length:", formattedCustomers.length);
+
   return (
-    <div className="flex h-screen bg-black">
-      <div className="w-screen h-screen flex flex-col space-y-5 justify-center items-center">
-        <iframe
-          src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          className="w-full max-w-screen-lg aspect-video"
-        ></iframe>
-        <SignOut />
-      </div>
+    <div className="mt-[200px]">
+      {/* @ts-ignore */}
+      <Table data={formattedCustomers} />
     </div>
   );
 }
