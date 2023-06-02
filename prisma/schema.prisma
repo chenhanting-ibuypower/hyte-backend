@@ -20,10 +20,10 @@ model User {
   password  String
   role      Role    @default(USER)
   name      String?
-  level     Int?
+  level     AcademicLevel?
   activitiesCompleted Int @default(0)
   totalHoursStudied   Int @default(0)
-  initialLevel        Int?
+  initialLevel        AcademicLevel?
   lastSignIn          DateTime  @default(now())
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
@@ -58,4 +58,17 @@ enum Subject {
   English
   Physics
   Chemistry
+}
+
+enum AcademicLevel {
+  Beginner
+  Intermediate
+  Advanced
+  Gifted
+  Struggling
+  Proficient
+  Exceptional
+  Underachieving
+  HighAchieving
+  Talented
 }

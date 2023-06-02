@@ -4,6 +4,20 @@ import topics from "./data/topics.json";
 import { Topic } from "../types/topics";
 const prisma = new PrismaClient();
 async function main() {
+  const academicLevels = [
+    null,
+    "Beginner",
+    "Intermediate",
+    "Advanced",
+    "Gifted",
+    "Struggling",
+    "Proficient",
+    "Exceptional",
+    "Underachieving",
+    "HighAchieving",
+    "Talented",
+  ];
+
   const names = [
     "Alice",
     "Bob",
@@ -65,11 +79,18 @@ async function main() {
     const emailName = name.toLowerCase();
     await prisma.user.upsert({
       where: { email: `${emailName}@prisma.io` },
-      update: {},
+      update: {
+        // @ts-ignore
+        initialLevel: academicLevels[Math.ceil(Math.random() * academicLevels.length)],
+      },
       create: {
         email: `${emailName}@prisma.io`,
         name,
         role: "USER",
+        // @ts-ignore
+        initialLevel: academicLevels[Math.ceil(Math.random() * academicLevels.length)],
+        activitiesCompleted: Math.ceil(Math.random() * 100),
+        totalHoursStudied:  Math.ceil(Math.random() * 100),
         password: await hash("qwer1234", 10),
       },
     });

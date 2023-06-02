@@ -12,29 +12,12 @@ import {
   useReactTable,
   Column,
   Table as ReactTable,
-  PaginationState,
   getFilteredRowModel,
   getPaginationRowModel,
-  OnChangeFn,
 } from "@tanstack/react-table";
 
-export interface TableData {
-  name: string | null;
-  email: string;
-  level: string | null;
-  activitiesCompleted: number;
-  totalHoursStudied: number;
-  initialLevel: string | null;
-  lastSignIn: string;
-  createdAt: string;
-}
-
-interface TableProps {
-  data: TableData[];
-}
-
 const paginationStyle =
-  "px-3 py-2 ml-0 leading-tight bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 border-gray-700";
+  "px-3 py-2 ml-0 leading-tight border border-gray-300 bg-white hover:bg-gray-100 hover:text-gray-700 border-gray-700";
 const inputStyle =
   "block w-full py-1 px-2 text-sm text-gray-900 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500";
 
@@ -89,10 +72,10 @@ function Filter({
   );
 }
 
-const Table: React.FC<TableProps> = ({ data }) => {
+const ReactTable: React.FC<{ data: TableCustomer[] }> = ({ data }) => {
   const [sorting, setSorting] = React.useState<SortingState>([]);
 
-  const columns = React.useMemo<ColumnDef<TableData>[]>(
+  const columns = React.useMemo<ColumnDef<TableCustomer>[]>(
     () => [
       {
         header: "Name",
@@ -259,12 +242,12 @@ const Table: React.FC<TableProps> = ({ data }) => {
                     className={cn(
                       paginationStyle,
                       table.getState().pagination.pageIndex + 1 === page
-                        ? "bg-gray-400 text-white"
+                        ? "!bg-gray-400 text-white"
                         : "text-gray-400"
                     )}
                     onClick={() => {
                       console.log("current page:", page - 1);
-                      table.setPageIndex(page);
+                      table.setPageIndex(page - 1);
                     }}
                     disabled={!table.getCanPreviousPage()}
                   >
@@ -338,4 +321,4 @@ const Table: React.FC<TableProps> = ({ data }) => {
   );
 };
 
-export default Table;
+export default ReactTable;

@@ -1,8 +1,7 @@
 import prisma from "@/lib/prisma";
-import SignOut from "@/components/sign-out";
-import Table from "@/components/customers/table";
-
+import MuiTable from "@/components/customers/mui-table";
 async function getCustomers(): Promise<Customer[]> {
+  // @ts-ignore
   return await prisma.user.findMany({
     select: {
       name: true,
@@ -21,20 +20,18 @@ async function getCustomers(): Promise<Customer[]> {
   });
 }
 
-export default async function Home() {
+async function Home() {
   const customers: Customer[] = await getCustomers();
   const formattedCustomers = customers.map((customer) => ({
     ...customer,
-    lastSignIn: customer.lastSignIn.toISOString(),
-    createdAt: customer.createdAt.toISOString(),
+    lastSignIn: customer.lastSignIn.toLocaleDateString("en-US", { year: "numeric", month: "2-digit", day: "2-digit" }),
+    createdAt: customer.createdAt.toLocaleDateString("en-US", { year: "numeric", month: "2-digit", day: "2-digit" }),
   }));
 
-  console.log("customers length:", formattedCustomers.length);
-
   return (
-    <div className="mt-[200px]">
-      {/* @ts-ignore */}
-      <Table data={formattedCustomers} />
+    <div className="">
+      <MuiTable customers={formattedCustomers}></MuiTable>
     </div>
   );
 }
+export default Home;

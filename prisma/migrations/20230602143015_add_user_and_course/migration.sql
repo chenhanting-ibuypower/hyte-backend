@@ -7,6 +7,9 @@ CREATE TYPE "Level" AS ENUM ('Easy', 'Normal', 'Hard', 'Expert', 'Master');
 -- CreateEnum
 CREATE TYPE "Subject" AS ENUM ('Science', 'Math', 'English', 'Physics', 'Chemistry');
 
+-- CreateEnum
+CREATE TYPE "AcademicLevel" AS ENUM ('Beginner', 'Intermediate', 'Advanced', 'Gifted', 'Struggling', 'Proficient', 'Exceptional', 'Underachieving', 'HighAchieving', 'Talented');
+
 -- CreateTable
 CREATE TABLE "User" (
     "id" SERIAL NOT NULL,
@@ -14,10 +17,10 @@ CREATE TABLE "User" (
     "password" TEXT NOT NULL,
     "role" "Role" NOT NULL DEFAULT 'USER',
     "name" TEXT,
-    "level" INTEGER,
+    "level" "AcademicLevel",
     "activitiesCompleted" INTEGER NOT NULL DEFAULT 0,
     "totalHoursStudied" INTEGER NOT NULL DEFAULT 0,
-    "initialLevel" INTEGER,
+    "initialLevel" "AcademicLevel",
     "lastSignIn" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
