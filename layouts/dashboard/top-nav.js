@@ -55,7 +55,7 @@ export const TopNav = (props) => {
             direction="row"
             spacing={2}
           >
-            <div className="hidden lg:block">
+            <div className="block lg:hidden">
               <IconButton onClick={onNavOpen}>
                 <SvgIcon fontSize="small">
                   <Bars3Icon />

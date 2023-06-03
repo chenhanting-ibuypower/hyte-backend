@@ -24,6 +24,7 @@
     "@mui/system": "5.11.9",
     "@mui/x-date-pickers": "5.0.19",
     "@prisma/client": "^4.14.0",
+    "@tailwindcss/line-clamp": "^0.4.4",
     "@tanstack/react-table": "^8.9.1",
     "@types/react": "^18.0.25",
     "apexcharts": "3.37.0",

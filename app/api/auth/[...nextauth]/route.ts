@@ -4,6 +4,22 @@ import prisma from "@/lib/prisma";
 import { compare } from "bcrypt";
 
 export const authOptions: NextAuthOptions = {
+  callbacks: {
+    async jwt({ token, user }) {
+      /* Step 1: update the token based on the user object */
+      if (user) {
+        token.role = user.role;
+      }
+      return token;
+    },
+    session({ session, token }) {
+      /* Step 2: update the session.user based on the token object */
+      if (token && session.user) {
+        session.user.role = token.role;
+      }
+      return session;
+    },
+  },
   providers: [
     CredentialsProvider({
       credentials: {
@@ -25,6 +41,7 @@ export const authOptions: NextAuthOptions = {
         if (!user || !(await compare(password, user.password))) {
           throw new Error("Invalid username or password");
         }
+
         return user;
       },
     }),
