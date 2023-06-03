@@ -5,7 +5,7 @@ import {Rank} from "@/components/course/rank";
 
 export default function Home() {
   return (
-    <>
+    <div className="font-sans">
       <div className="flex bg-black">
         <div className="w-screen h-screen flex flex-col justify-center items-center">
           <Image
@@ -87,6 +87,6 @@ export default function Home() {
       <Timeline>
         <Rank></Rank>
       </Timeline>
-    </>
+    </div>
   );
 }

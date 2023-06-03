@@ -6,7 +6,7 @@ import AuthStatus from "@/components/auth-status";
 import { Suspense } from "react";
 
 const inter = Inter({
-  variable: "--font-inter",
+  variable: "--fonts-inter",
   subsets: ["latin"],
 });
 

@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'LithosPro';
+    src: url('../fonts/LithosPro-Regular.otf') format('truetype');
+    /* Add more fonts-face declarations for other fonts styles or weights */
+}
