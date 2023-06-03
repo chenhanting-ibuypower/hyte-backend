@@ -113,8 +113,6 @@ function MuiTable({ customers }: { customers: TableCustomer[] }) {
     (_, index) => index + 1
   );
 
-  console.log("table: ", table);
-
   const paginationStyle =
     "ml-0 leading-tight border border-gray-300 bg-white hover:bg-gray-100 hover:text-gray-700 border-gray-700";
 
