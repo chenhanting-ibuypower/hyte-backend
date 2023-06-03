@@ -1,10 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Timeline } from "@/components/icons/timeline";
+import { Timeline } from "@/components/course/timeline";
+import {Rank} from "@/components/course/rank";
 
 export default function Home() {
-  const ranks = Array.from({ length: 5 }, (_, index) => `RANK ${index + 1}`);
-
   return (
     <>
       <div className="flex bg-black">
@@ -86,18 +85,7 @@ export default function Home() {
         </h1>
       </div>
       <Timeline>
-        <div className="absolute top-0 left-[20%] md:left-[60%] w-full mt-8">
-          {ranks.map((rank, i) => (
-            <div
-              key={`rank-${i}`}
-              className="min-w-[250px] my-[160px] w-1/3 border-separate border-spacing-2 border-4 border-[#c0f1a0] rounded-tr-3xl rounded-bl-3xl"
-            >
-              <p className="border border-slate-600 m-4 p-4 rounded-tr-3xl rounded-bl-3xl bg-[#b4e886]">
-                <span>{rank}</span>
-              </p>
-            </div>
-          ))}
-        </div>
+        <Rank></Rank>
       </Timeline>
     </>
   );
