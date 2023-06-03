@@ -33,6 +33,7 @@
     "classnames": "^2.3.2",
     "date-fns": "2.29.3",
     "formik": "2.2.9",
+    "gsap": "^3.11.5",
     "next": "^13.4.2",
     "next-auth": "^4.22.1",
     "nprogress": "0.2.0",
