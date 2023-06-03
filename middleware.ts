@@ -2,6 +2,7 @@ import { getToken } from "next-auth/jwt";
 import { NextRequest, NextResponse } from "next/server";
 
 export default async function middleware(req: NextRequest) {
+
   // Get the pathname of the request (e.g. /, /admin)
   const path = req.nextUrl.pathname;
 
