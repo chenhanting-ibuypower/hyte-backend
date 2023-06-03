@@ -4,7 +4,7 @@ import { useMedia } from "react-use";
 
 export function Rank() {
   const ranks = Array.from({ length: 5 }, (_, index) => `RANK ${index + 1}`);
-  const lgUp = useMedia("(min-width: 1024px)");
+  const lgUp = useMedia("(min-width: 1024px)", false); // Initialize with fallback value
 
   return (
     <div className="absolute top-0 left-[25%] sm:left-[15%] md:left-[10%] lg:left-[55%] w-full mt-8">
