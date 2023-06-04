@@ -5,23 +5,21 @@ import ArrowDownLeftIcon from "@heroicons/react/20/solid/ArrowDownLeftIcon";
 import { SvgIcon } from "@mui/material";
 import Image from "next/image";
 import cn from "classnames";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import { useMedia } from "react-use";
 
 export default function TopNav() {
   const [menu, setMenu] = useState(false);
   const lgUp = useMedia("(min-width: 1024px)", false); // Initialize with fallback value
 
-  console.log("!lgUp && menu 👉", !lgUp && menu)
-
   useEffect(() => {
-    if(lgUp) {
-      setMenu(true);
+    if (lgUp) {
+      setMenu(false);
     }
-  }, [lgUp])
+  }, [lgUp]);
 
   return (
-    <nav className="container flex justify-between items-center w-85 mx-auto my-6 h-20">
+    <nav className="mx-6 flex justify-between items-center w-85 my-6 h-20">
       <style>{`
         @media (min-width: 1024px) {
           ul.nav-item.flex li {
@@ -43,7 +41,7 @@ export default function TopNav() {
         
         @media (max-width: 1024px) {
           ul.nav-item {
-            display: ${!lgUp && menu ? "none" : "flex"};
+            display: ${!lgUp && menu ? "flex" : "none"};
             -webkit-box-pack: justify;
             justify-content: space-between;
             -webkit-box-align: center;
@@ -87,23 +85,23 @@ export default function TopNav() {
             setMenu((menu) => !menu);
           }}
         >
-          {menu ? <Bar /> : <ArrowDownLeftIcon />}
+          {!lgUp && (menu ? <ArrowDownLeftIcon /> : <Bar />)}
         </SvgIcon>
       </span>
       <ul
         className={cn(
-          "nav-item flex flex-col lg:flex-row text-gray-800 lg:text-[#beecac]",
-          !lgUp && !menu && "overflow-hidden"
+          "nav-item flex flex-col lg:flex-row text-gray-800 lg:text-[#beecac]"
         )}
       >
         <li className="mx-6">DESIGN THINKING</li>
-        <li className="mx-6">PRICING</li>
-        <li className="mx-6">FAQ</li>
+        <li className="mx-6">CODING</li>
+        <li className="mx-6">ART</li>
+        <li className="mx-6">AI</li>
         <li className="lg:hidden mx-6">
-          <button className="font-inherit leading-4 m-0 overflow-visible uppercase appearance-none inline-block bg-gray-800 text-white outline-none border-none text-xs md:text-sm py-2 px-6 rounded-full cursor-pointer transition-all duration-200 ease-in-out relative">
+          <button className="min-w-[200px] font-inherit leading-4 m-0 overflow-visible uppercase appearance-none inline-block bg-gray-800 text-white outline-none border-none text-xs md:text-sm py-2 px-6 rounded-full cursor-pointer transition-all duration-200 ease-in-out relative">
             <a
-              href="https://google.com"
-              aria-label="Connect Wallet"
+              href="/courses"
+              aria-label="Courses"
               target="_blank"
               rel="noreferrer"
             >
@@ -112,10 +110,10 @@ export default function TopNav() {
           </button>
         </li>
         <li className="lg:hidden mx-6">
-          <button className="font-inherit leading-4 m-0 overflow-visible uppercase appearance-none inline-block bg-gray-800 text-white outline-none border-none text-xs md:text-sm py-2 px-6 rounded-full cursor-pointer transition-all duration-200 ease-in-out relative">
+          <button className="min-w-[200px] font-inherit leading-4 m-0 overflow-visible uppercase appearance-none inline-block bg-gray-800 text-white outline-none border-none text-xs md:text-sm py-2 px-6 rounded-full cursor-pointer transition-all duration-200 ease-in-out relative">
             <a
-              href="https://google.com"
-              aria-label="Connect Wallet"
+              href="/admin/customers"
+              aria-label="Admin"
               target="_blank"
               rel="noreferrer"
             >
@@ -127,8 +125,8 @@ export default function TopNav() {
       <div className="hidden lg:flex flex-col lg:flex-row gap-y-2 lg:gap-x-2">
         <button className="font-inherit leading-4 m-0 overflow-visible uppercase appearance-none inline-block bg-[#beecac] text-white outline-none border-none text-xs md:text-sm py-2 px-6 rounded-full cursor-pointer transition-all duration-200 ease-in-out relative">
           <a
-            href="https://google.com"
-            aria-label="Connect Wallet"
+            href="/courses"
+            aria-label="Courses"
             target="_blank"
             rel="noreferrer"
           >
@@ -138,8 +136,8 @@ export default function TopNav() {
 
         <button className="font-inherit leading-4 m-0 overflow-visible uppercase appearance-none inline-block bg-[#beecac] text-white outline-none border-none text-xs md:text-sm py-2 px-6 rounded-full cursor-pointer transition-all duration-200 ease-in-out relative">
           <a
-            href="https://google.com"
-            aria-label="Connect Wallet"
+            href="/admin/customers"
+            aria-label="Admin"
             target="_blank"
             rel="noreferrer"
           >

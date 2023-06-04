@@ -49,7 +49,7 @@ export function Rank() {
             transform: lgUp && i % 2 !== 0 ? "translateX(-130%)" : "none",
           }}
           className={cn(
-            "min-w-[200px] sm:min-w-[400px] md:min-w-2/3 my-[160px] w-1/3 border-separate border-spacing-2 border border-t-4 border-[#c0f1a0]",
+            "min-w-[90%] md:min-w-2/3 my-[160px] w-1/3 border-separate border-spacing-2 border border-t-4 border-[#c0f1a0]",
             roundedAngle(i)
           )}
         >
