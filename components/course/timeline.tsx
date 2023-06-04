@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+import { useEffect, useRef } from "react";
+
 export function Timeline({ children }: { children?: React.ReactNode }) {
   const ref = useRef(null);
+  const ballRef = useRef(null);
 
   useEffect(() => {
     let element = ref.current;
@@ -23,21 +24,34 @@ export function Timeline({ children }: { children?: React.ReactNode }) {
         // markers: true,
         onUpdate: (self) => {
           const draw = length * self.progress;
-          console.log("draw & progress:", draw, "&", self.progress);
+          // console.log("draw & progress:", draw, "&", self.progress);
 
           // @ts-ignore
           svg.style.strokeDashoffset = length - draw;
           // @ts-ignore
           svg.style.strokeDasharray = length;
         },
+        onToggle: (self) => {
+          if (self.isActive) {
+            // @ts-ignore
+            ballRef.current.style.display = "none"
+          } else {
+            // @ts-ignore
+            ballRef.current.style.display = "inline-block"
+          }
+        }
       },
     });
   }, []);
 
   return (
     <div className="relative">
-      <div className="w-full flex lg:justify-center">
-        <div className="w-[100px] h-[1500px]">
+      <div className="w-screen flex lg:justify-center">
+        <div className="w-[100px] h-[2000px]">
+          <span className="absolute left-[8%] sm:left-[5%] md:left-[4%] lg:left-[49%] 2xl:left-[49.3%] -top-3 flex h-7 w-7" ref={ballRef}>
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#c0f19f] opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-7 w-7 bg-[#c0f19f]"></span>
+          </span>
           <svg
             ref={ref}
             viewBox="0 0 52 2047"

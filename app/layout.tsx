@@ -1,9 +1,9 @@
 import "@/styles/globals.css";
+import { Suspense } from "react";
 import { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import AuthStatus from "@/components/auth-status";
-import { Suspense } from "react";
 
 const inter = Inter({
   variable: "--fonts-inter",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   themeColor: "#FFF",
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -36,8 +36,7 @@ export default async function RootLayout({
       <body className={inter.variable}>
         <Toaster />
         <Suspense fallback="Loading...">
-          {/* @ts-expect-error Async Server Component */}
-          <AuthStatus />
+          {/* <AuthStatus /> */}
         </Suspense>
         {children}
       </body>
