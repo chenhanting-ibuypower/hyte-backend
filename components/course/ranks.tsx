@@ -5,8 +5,9 @@ import cn from "classnames";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
 
-export function Rank() {
+export function Ranks() {
   const ranks = [
     {
       rank: "Easy",
@@ -53,6 +54,7 @@ export function Rank() {
             roundedAngle(i)
           )}
         >
+          <Link href={`/rank/${rank.rank.toLowerCase()}`}>
           <p
             className={cn(
               "border border-green-400 m-4 p-4 bg-[#b4e886]",
@@ -64,6 +66,7 @@ export function Rank() {
             </span>
             <div className="my-4">{rank.description}</div>
           </p>
+          </Link>
         </div>
       ))}
     </div>

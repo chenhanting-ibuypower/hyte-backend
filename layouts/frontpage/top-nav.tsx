@@ -77,7 +77,7 @@ export default function TopNav() {
           />
         </a>
       </h1>
-      <span className="">
+      <span className="lg:hidden">
         <SvgIcon
           fontSize="medium"
           className="lg:hidden cursor-pointer"
@@ -85,7 +85,7 @@ export default function TopNav() {
             setMenu((menu) => !menu);
           }}
         >
-          {!lgUp && (menu ? <ArrowDownLeftIcon /> : <Bar />)}
+           {(menu ? <ArrowDownLeftIcon /> : <Bar />)}
         </SvgIcon>
       </span>
       <ul

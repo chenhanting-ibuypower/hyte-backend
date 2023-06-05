@@ -2,8 +2,9 @@ import { notFound } from "next/navigation";
 import prisma from "@/lib/prisma";
 import { Topic } from "../../../types/topics";
 import { PrismaClient, Level } from '@prisma/client';
+import Slider from "@/components/course/slider";
 
-const allRanks = ["Science", "Math", "English", "Physics", "Chemistry"];
+const allRanks = ["Easy", "Normal", "Hard", "Expert", "Master"];
 
 function capitalize(string: string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -40,9 +41,9 @@ export default async function RankPage({
 
   // @ts-ignore
   const _rank = Level[capitalize(rank)]
-  const posts = await getPostsByRank(_rank);
+  const questions = await getPostsByRank(_rank);
 
-  console.log(posts);
-
-  return <p>Post: {rank}</p>;
+  return <>
+    <Slider questions={questions} />
+  </>;
 }

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Timeline } from "@/components/course/timeline";
-import { Rank } from "@/components/course/rank";
+import { Ranks } from "@/components/course/ranks";
 import TopNav from "../layouts/frontpage/top-nav";
 
 export default function Home() {
@@ -25,7 +25,7 @@ export default function Home() {
         </h1>
       </div>
       <Timeline>
-        <Rank />
+        <Ranks />
       </Timeline>
     </div>
   );

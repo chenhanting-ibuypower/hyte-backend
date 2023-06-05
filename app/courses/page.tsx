@@ -1,5 +1,5 @@
 import { Timeline } from "@/components/course/timeline";
-import { Rank } from "@/components/course/rank";
+import { Ranks } from "@/components/course/ranks";
 
 export default function Page() {
   return (
@@ -11,7 +11,7 @@ export default function Page() {
         </h1>
       </div>
       <Timeline>
-        <Rank />
+        <Ranks />
       </Timeline>
     </div>
   );
