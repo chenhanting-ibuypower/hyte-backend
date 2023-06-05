@@ -3,7 +3,6 @@ import { Suspense } from "react";
 import { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
-import AuthStatus from "@/components/auth-status";
 
 const inter = Inter({
   variable: "--fonts-inter",
