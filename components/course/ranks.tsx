@@ -54,7 +54,7 @@ export function Ranks() {
             roundedAngle(i)
           )}
         >
-          <Link href={`/rank/${rank.rank.toLowerCase()}`}>
+          <Link href={`/learning`}>
           <p
             className={cn(
               "border border-green-400 m-4 p-4 bg-[#b4e886]",

@@ -11,7 +11,7 @@ export default function Home() {
         <div className="w-screen h-screen lg:h-[70vw] relative flex flex-col justify-center items-center">
           <Image
             fill
-            src="/cover.jpg"
+            src="/homepage-cover.jpg"
             alt="Homepage Image"
             style={{
               objectFit: "cover",
