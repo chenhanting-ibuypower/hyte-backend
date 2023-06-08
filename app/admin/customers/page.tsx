@@ -22,10 +22,19 @@ async function getCustomers(): Promise<Customer[]> {
 
 async function Home() {
   const customers: Customer[] = await getCustomers();
+
   const formattedCustomers = customers.map((customer) => ({
     ...customer,
-    lastSignIn: customer.lastSignIn.toLocaleDateString("en-US", { year: "numeric", month: "2-digit", day: "2-digit" }),
-    createdAt: customer.createdAt.toLocaleDateString("en-US", { year: "numeric", month: "2-digit", day: "2-digit" }),
+    lastSignIn: customer.lastSignIn.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    }),
+    createdAt: customer.createdAt.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    }),
   }));
 
   return (

@@ -50,7 +50,11 @@ function MuiTable({ customers }: { customers: TableCustomer[] }) {
       {
         header: "Email",
         accessorKey: "email",
-        cell: (info) => info.getValue(),
+        cell: (info) => {
+          console.log(info);
+          // @ts-ignore
+          return <a className="cursor-pointer hover:underline" href={`/admin/customers/1`}>{info.getValue()}</a>;
+        },
         footer: (props) => props.column.id,
       },
       {
@@ -168,7 +172,10 @@ function MuiTable({ customers }: { customers: TableCustomer[] }) {
               </Button>
             </div>
           </Stack>
-          <CustomersSearch table={table} column={table.getHeaderGroups()[0].headers[0].column} />
+          <CustomersSearch
+            table={table}
+            column={table.getHeaderGroups()[0].headers[0].column}
+          />
 
           <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">

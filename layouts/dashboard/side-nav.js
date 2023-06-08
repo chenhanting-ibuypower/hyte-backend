@@ -21,7 +21,7 @@ import { useMedia } from "react-use";
 export const SideNav = (props) => {
   const { open, onClose } = props;
   const pathname = usePathname();
-  const lgUp = useMedia('(min-width: 1200px)');
+  const lgUp = useMedia("(min-width: 1200px)");
 
   const content = (
     <Scrollbar
@@ -67,11 +67,7 @@ export const SideNav = (props) => {
               p: "12px",
             }}
           >
-            <div>
-              <Typography color="inherit" variant="subtitle1">
-                Yoca Forest
-              </Typography>
-            </div>
+            <div className="text-red text-sans">Yoca Forest</div>
             <SvgIcon fontSize="small" sx={{ color: "neutral.500" }}>
               <ChevronUpDownIcon />
             </SvgIcon>
@@ -118,8 +114,7 @@ export const SideNav = (props) => {
             px: 2,
             py: 3,
           }}
-        >
-        </Box>
+        ></Box>
       </Box>
     </Scrollbar>
   );
