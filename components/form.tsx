@@ -32,7 +32,7 @@ export default function Form({ type }: { type: "login" | "register" }) {
               toast.error(error);
             } else {
               router.refresh();
-              router.push("/admin");
+              // router.push("/admin");
             }
           });
         } else {

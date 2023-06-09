@@ -2,7 +2,6 @@ import { getToken } from "next-auth/jwt";
 import { NextRequest, NextResponse } from "next/server";
 
 export default async function middleware(req: NextRequest) {
-
   // Get the pathname of the request (e.g. /, /admin)
   const path = req.nextUrl.pathname;
 
@@ -18,8 +17,17 @@ export default async function middleware(req: NextRequest) {
 
   if (!session && path.startsWith("/admin")) {
     return NextResponse.redirect(new URL("/login", req.url));
+  } else if (session && session.role !== "ADMIN" && path.startsWith("/admin")) {
+    return NextResponse.redirect(new URL("/learning", req.url));
+  } else if (!session && path.startsWith("/learning")) {
+    return NextResponse.redirect(new URL("/login", req.url));
   } else if (session && (path === "/login" || path === "/register")) {
-    return NextResponse.redirect(new URL("/admin", req.url));
+    if (session.role === "ADMIN") {
+      return NextResponse.redirect(new URL("/admin", req.url));
+    } else {
+      return NextResponse.redirect(new URL("/learning", req.url));
+    }
   }
+
   return NextResponse.next();
 }
