@@ -7,10 +7,14 @@ import Image from "next/image";
 import cn from "classnames";
 import { useEffect, useState } from "react";
 import { useMedia } from "react-use";
+import { getSession, signOut } from "next-auth/react";
 
 export default function TopNav() {
   const [menu, setMenu] = useState(false);
   const lgUp = useMedia("(min-width: 1024px)", false); // Initialize with fallback value
+  const [user, setUser] = useState({
+    user: undefined
+  });
 
   useEffect(() => {
     if (lgUp) {
@@ -18,27 +22,44 @@ export default function TopNav() {
     }
   }, [lgUp]);
 
+  useEffect(() => {
+    getSession()
+      .then((_user) => {
+        // @ts-ignore
+        setUser(_user);
+      })
+      .catch((err) => {
+        console.error(err);
+        // @ts-ignore
+        setUser({});
+      });
+  }, []);
+
+  // @ts-ignore
+  const role = user?.user?.role;
+  const isAdmin = role === "ADMIN";
+
   return (
     <nav className="mx-6 flex justify-between items-center w-85 my-6 h-20">
-      <style>{`
+      <style jsx>{`
         @media (min-width: 1024px) {
           ul.nav-item.flex li {
             position: relative;
           }
-  
+
           ul.nav-item.flex li:not(:last-child)::after {
             content: "";
             position: absolute;
             top: 50%;
             height: 100%;
-            right: -1.5rem; 
+            right: -1.5rem;
             transform: translateY(-50%);
-            border-right: 2px solid #beecac; 
+            border-right: 2px solid #beecac;
             padding-right: 2rem;
             font-weight: bold;
           }
         }
-        
+
         @media (max-width: 1024px) {
           ul.nav-item {
             display: ${!lgUp && menu ? "flex" : "none"};
@@ -61,10 +82,10 @@ export default function TopNav() {
             justify-content: center;
             touch-action: none;
           }
-          
-           ul.nav-item.flex li {
+
+          ul.nav-item.flex li {
             margin: 10px 0;
-           }
+          }
         }
       `}</style>
       <h1 className="sc-gueYoa llKvDc">
@@ -85,7 +106,7 @@ export default function TopNav() {
             setMenu((menu) => !menu);
           }}
         >
-           {(menu ? <ArrowDownLeftIcon /> : <Bar />)}
+          {menu ? <ArrowDownLeftIcon /> : <Bar />}
         </SvgIcon>
       </span>
       <ul
@@ -97,22 +118,67 @@ export default function TopNav() {
         <li className="mx-6">CODING</li>
         <li className="mx-6">ART</li>
         <li className="mx-6">AI</li>
-        <li className="lg:hidden mx-6">
-          <button className="min-w-[200px] font-inherit leading-4 m-0 overflow-visible uppercase appearance-none inline-block bg-gray-800 text-white outline-none border-none text-xs md:text-sm py-2 px-6 rounded-full cursor-pointer transition-all duration-200 ease-in-out relative">
+        {role ? (
+          <li className="lg:hidden mx-6">
+            <button
+              onClick={() => signOut()}
+              className="min-w-[200px] font-inherit leading-4 m-0 overflow-visible uppercase appearance-none inline-block bg-gray-800 text-white outline-none border-none text-xs md:text-sm py-2 px-6 rounded-full cursor-pointer transition-all duration-200 ease-in-out relative"
+            >
+              Sign out
+            </button>
+          </li>
+        ) : (
+          <li className="lg:hidden mx-6">
+            <button className="min-w-[200px] font-inherit leading-4 m-0 overflow-visible uppercase appearance-none inline-block bg-gray-800 text-white outline-none border-none text-xs md:text-sm py-2 px-6 rounded-full cursor-pointer transition-all duration-200 ease-in-out relative">
+              <a
+                href="/login"
+                aria-label="Admin"
+                rel="noreferrer"
+              >
+                Sign in
+              </a>
+            </button>
+          </li>
+        )}
+        {isAdmin && (
+          <li className="lg:hidden mx-6">
+            <button className="min-w-[200px] font-inherit leading-4 m-0 overflow-visible uppercase appearance-none inline-block bg-gray-800 text-white outline-none border-none text-xs md:text-sm py-2 px-6 rounded-full cursor-pointer transition-all duration-200 ease-in-out relative">
+              <a
+                href="/admin/customers"
+                aria-label="Admin"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Admin
+              </a>
+            </button>
+          </li>
+        )}
+      </ul>
+      <div className="hidden lg:flex flex-col lg:flex-row gap-y-2 lg:gap-x-2">
+        {role ? (
+          <button
+            onClick={() => signOut()}
+            className="font-inherit leading-4 m-0 overflow-visible uppercase appearance-none inline-block bg-[#beecac] text-white outline-none border-none text-xs md:text-sm py-2 px-6 rounded-full cursor-pointer transition-all duration-200 ease-in-out relative"
+          >
+            Sign out
+          </button>
+        ) : (
+          <button className="font-inherit leading-4 m-0 overflow-visible uppercase appearance-none inline-block bg-[#beecac] text-white outline-none border-none text-xs md:text-sm py-2 px-6 rounded-full cursor-pointer transition-all duration-200 ease-in-out relative">
             <a
-              href="/courses"
-              aria-label="Courses"
-              target="_blank"
+              href="/login"
+              aria-label="Admin"
               rel="noreferrer"
             >
-              Course
+              Sign in
             </a>
           </button>
-        </li>
-        <li className="lg:hidden mx-6">
-          <button className="min-w-[200px] font-inherit leading-4 m-0 overflow-visible uppercase appearance-none inline-block bg-gray-800 text-white outline-none border-none text-xs md:text-sm py-2 px-6 rounded-full cursor-pointer transition-all duration-200 ease-in-out relative">
+        )}
+
+        {isAdmin && (
+          <button className="font-inherit leading-4 m-0 overflow-visible uppercase appearance-none inline-block bg-[#beecac] text-white outline-none border-none text-xs md:text-sm py-2 px-6 rounded-full cursor-pointer transition-all duration-200 ease-in-out relative">
             <a
-              href="/admin/customers"
+              href="/admin"
               aria-label="Admin"
               target="_blank"
               rel="noreferrer"
@@ -120,30 +186,7 @@ export default function TopNav() {
               Admin
             </a>
           </button>
-        </li>
-      </ul>
-      <div className="hidden lg:flex flex-col lg:flex-row gap-y-2 lg:gap-x-2">
-        <button className="font-inherit leading-4 m-0 overflow-visible uppercase appearance-none inline-block bg-[#beecac] text-white outline-none border-none text-xs md:text-sm py-2 px-6 rounded-full cursor-pointer transition-all duration-200 ease-in-out relative">
-          <a
-            href="/courses"
-            aria-label="Courses"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Course
-          </a>
-        </button>
-
-        <button className="font-inherit leading-4 m-0 overflow-visible uppercase appearance-none inline-block bg-[#beecac] text-white outline-none border-none text-xs md:text-sm py-2 px-6 rounded-full cursor-pointer transition-all duration-200 ease-in-out relative">
-          <a
-            href="/admin/customers"
-            aria-label="Admin"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Admin
-          </a>
-        </button>
+        )}
       </div>
     </nav>
   );

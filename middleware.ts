@@ -15,18 +15,16 @@ export default async function middleware(req: NextRequest) {
     secret: process.env.NEXTAUTH_SECRET,
   });
 
-  if (!session && path.startsWith("/admin")) {
-    return NextResponse.redirect(new URL("/login", req.url));
-  } else if (session && session.role !== "ADMIN" && path.startsWith("/admin")) {
-    return NextResponse.redirect(new URL("/learning", req.url));
-  } else if (!session && path.startsWith("/learning")) {
-    return NextResponse.redirect(new URL("/login", req.url));
-  } else if (session && (path === "/login" || path === "/register")) {
-    if (session.role === "ADMIN") {
-      return NextResponse.redirect(new URL("/admin", req.url));
-    } else {
+  if (path.startsWith("/admin")) {
+    if (!session) {
+      return NextResponse.redirect(new URL("/login", req.url));
+    } else if (session.role !== "ADMIN") {
       return NextResponse.redirect(new URL("/learning", req.url));
     }
+  } else if (path.startsWith("/learning") && !session) {
+    return NextResponse.redirect(new URL("/login", req.url));
+  } else if (session && (path === "/login" || path === "/register")) {
+    return NextResponse.redirect(new URL(session.role === "ADMIN" ? "/admin" : "/learning", req.url));
   }
 
   return NextResponse.next();
