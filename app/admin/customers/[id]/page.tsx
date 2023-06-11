@@ -3,7 +3,13 @@
 import Head from "next/head";
 import SignOut from "@/components/sign-out";
 import { subDays, subHours } from "date-fns";
-import { Box, Container, Unstable_Grid2 as Grid } from "@mui/material";
+import {
+  Box,
+  Card,
+  Container,
+  Unstable_Grid2 as Grid,
+  Divider,
+} from "@mui/material";
 import { OverviewBudget } from "@/components/sections/overview/overview-budget";
 import { OverviewLatestOrders } from "@/components/sections/overview/overview-latest-orders";
 import { OverviewLatestProducts } from "@/components/sections/overview/overview-latest-products";
@@ -52,7 +58,7 @@ const Page = () => (
           <Grid xs={12} sm={6} lg={3}>
             <OverviewTotalProfit sx={{ height: "100%" }} value="$15k" />
           </Grid>
-          <Grid xs={12} lg={8}>
+          <Grid xs={12} lg={8} hidden>
             <OverviewSales
               chartSeries={[
                 {
@@ -67,16 +73,62 @@ const Page = () => (
               sx={{ height: "100%" }}
             />
           </Grid>
-          <Grid xs={12} md={6} lg={4}>
-            <OverviewTraffic
-              chartSeries={[63, 15, 22]}
-              labels={["Desktop", "Tablet", "Phone"]}
-              sx={{ height: "100%" }}
+
+          <Card
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              flexWrap: "wrap",
+              width: "100%",
+              margin: "10px auto",
+              backgroundColor: "#829671",
+            }}
+          >
+            <Divider
+              sx={{
+                width: "97%",
+                borderBottom: "1px solid #eff1ed",
+                paddingTop: "10px",
+                margin: "0 auto",
+              }}
             />
-          </Grid>
-          <Grid xs={12} md={6} lg={4}>
-            <ApexChart />
-          </Grid>
+            <Grid xs={12} md={4}>1</Grid>
+            <Grid xs={12} md={4}>2</Grid>
+            <Grid xs={12} md={4}>3</Grid>
+          </Card>
+
+          <Card
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              flexWrap: "wrap",
+              width: "100%",
+              backgroundColor: "#829671",
+            }}
+          >
+            <Divider
+              sx={{
+                width: "97%",
+                borderBottom: "1px solid #eff1ed",
+                paddingTop: "10px",
+                margin: "0 auto",
+              }}
+            />
+            <Grid xs={12} md={6}>
+              <OverviewTraffic
+                chartSeries={[63, 15, 22]}
+                labels={["Desktop", "Tablet", "Phone"]}
+                sx={{ height: "100%" }}
+              />
+            </Grid>
+            <Grid xs={12} md={6}>
+              <ApexChart
+                chartSeries={[20, 100, 40, 30, 50]}
+                labels={["數學", "動畫", "程式", "設計思考", "物理"]}
+                sx={{ height: "100%" }}
+              />
+            </Grid>
+          </Card>
           <Grid xs={12} md={6} lg={4}></Grid>
           <Grid xs={12} md={12} lg={8}></Grid>
         </Grid>

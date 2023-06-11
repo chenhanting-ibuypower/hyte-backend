@@ -4,7 +4,6 @@ import DeviceTabletIcon from '@heroicons/react/24/solid/DeviceTabletIcon';
 import PhoneIcon from '@heroicons/react/24/solid/PhoneIcon';
 import {
   Box,
-  Card,
   CardContent,
   CardHeader,
   Stack,
@@ -85,7 +84,7 @@ export const OverviewTraffic = (props) => {
   const chartOptions = useChartOptions(labels);
 
   return (
-    <Card sx={sx}>
+    <Box sx={sx}>
       <CardHeader title="Traffic Source" />
       <CardContent>
         <Chart
@@ -132,7 +131,7 @@ export const OverviewTraffic = (props) => {
           })}
         </Stack>
       </CardContent>
-    </Card>
+    </Box>
   );
 };
 
