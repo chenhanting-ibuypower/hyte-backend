@@ -3,6 +3,7 @@
 import Head from "next/head";
 import SignOut from "@/components/sign-out";
 import { subDays, subHours } from "date-fns";
+import YocaTitle from "@/components/yoca-title";
 import {
   Box,
   Card,
@@ -19,6 +20,7 @@ import { OverviewTotalCustomers } from "@/components/sections/overview/overview-
 import { OverviewTotalProfit } from "@/components/sections/overview/overview-total-profit";
 import { OverviewTraffic } from "@/components/sections/overview/overview-traffic";
 import ApexChart from "@/components/sections/overview/radar-chart";
+import SimplePie from "@/components/simple-pie";
 
 const now = new Date();
 
@@ -92,9 +94,39 @@ const Page = () => (
                 margin: "0 auto",
               }}
             />
-            <Grid xs={12} md={4}>1</Grid>
-            <Grid xs={12} md={4}>2</Grid>
-            <Grid xs={12} md={4}>3</Grid>
+            <Grid xs={12} md={4}>
+              <div className="flex items-center justify-center">
+                <YocaTitle
+                  title="單元132"
+                  subtitle="已完成數量"
+                  label="unit"
+                  tree={1}
+                ></YocaTitle>
+                <SimplePie n={10} />
+              </div>
+            </Grid>
+            <Grid xs={12} md={4}>
+              <div className="flex items-center justify-center">
+              <YocaTitle
+                title="等級6"
+                subtitle="已到達等級"
+                label="level"
+                tree={2}
+              ></YocaTitle>
+                <SimplePie n={20} />
+              </div>
+            </Grid>
+            <Grid xs={12} md={4}>
+              <div className="flex items-center justify-center">
+              <YocaTitle
+                title="心情9.8"
+                subtitle="學習開心指數"
+                label="mood"
+                tree={2}
+              ></YocaTitle>
+                <SimplePie n={30} />
+              </div>
+            </Grid>
           </Card>
 
           <Card
