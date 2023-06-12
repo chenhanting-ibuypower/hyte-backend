@@ -50,22 +50,24 @@ export function Ranks() {
             transform: lgUp && i % 2 !== 0 ? "translateX(-130%)" : "none",
           }}
           className={cn(
-            "min-w-[90%] md:min-w-2/3 my-[160px] w-1/3 border-separate border-spacing-2 border border-t-4 border-[#c0f1a0]",
+            "min-w-[90%] md:min-w-2/3 my-[160px] w-1/3 border-separate border-spacing-2 border border-t-4",
+            i === 0 ? "border-[#c0f1a0]" : "border-[#f0f6e8]",
             roundedAngle(i)
           )}
         >
           <Link href={`/learning`}>
-          <p
-            className={cn(
-              "border border-green-400 m-4 p-4 bg-[#b4e886]",
-              roundedAngle(i)
-            )}
-          >
-            <span>
-              RANK {i + 1}: {rank.rank}
-            </span>
-            <div className="my-4">{rank.description}</div>
-          </p>
+            <p
+              className={cn(
+                "border m-4 p-4 text-[#ffffff]",
+                i === 0 ? "bg-[#a8d978] border-green-400" : "bg-[#f0f6e8]",
+                roundedAngle(i)
+              )}
+            >
+              <span>
+                RANK {i + 1}: {rank.rank}
+              </span>
+              <div className="my-4">{rank.description}</div>
+            </p>
           </Link>
         </div>
       ))}

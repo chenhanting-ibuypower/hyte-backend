@@ -19,7 +19,7 @@ export default function Home() {
           />
         </div>
       </div>
-      <div className="w-full">
+      <div className="w-full mt-20">
         <h1 className="mx-auto pb-1 w-fit text-4xl mt-6 mb-14 border-b-2 border-[#a8d978] text-[#a8d978]">
           My Course
         </h1>

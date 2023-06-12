@@ -13,7 +13,7 @@ export default function TopNav() {
   const [menu, setMenu] = useState(false);
   const lgUp = useMedia("(min-width: 1024px)", false); // Initialize with fallback value
   const [user, setUser] = useState({
-    user: undefined
+    user: undefined,
   });
 
   useEffect(() => {
@@ -47,16 +47,19 @@ export default function TopNav() {
             position: relative;
           }
 
-          ul.nav-item.flex li:not(:last-child)::after {
+          ul.nav-item.flex
+            li:not(:last-child):not(:nth-last-child(2)):not(
+              :nth-last-child(3)
+            ):not(.lg\\\:hidden)::after {
             content: "";
             position: absolute;
             top: 50%;
             height: 100%;
             right: -1.5rem;
             transform: translateY(-50%);
-            border-right: 2px solid #739c5b;
+            border-right: 1px solid #739c5b;
             padding-right: 2rem;
-            font-weight: bold;
+            font-weight: normal;
           }
         }
 
@@ -101,7 +104,7 @@ export default function TopNav() {
       <span className="lg:hidden">
         <SvgIcon
           fontSize="medium"
-          className="lg:hidden cursor-pointer"
+          className="lg:hidden cursor-pointer text-[#A8D978]"
           onClick={() => {
             setMenu((menu) => !menu);
           }}
@@ -123,19 +126,15 @@ export default function TopNav() {
           <li className="lg:hidden mx-6">
             <button
               onClick={() => signOut()}
-              className="min-w-[200px] font-inherit leading-4 m-0 overflow-visible uppercase appearance-none inline-block bg-[#8EE046] text-white outline-none border-none text-xs md:text-sm py-2 px-6 rounded-full cursor-pointer transition-all duration-200 ease-in-out relative"
+              className="min-w-[200px] font-inherit leading-4 m-0 overflow-visible uppercase appearance-none inline-block bg-[#A8D978] text-white outline-none border-none text-xs md:text-sm py-2 px-6 rounded-full cursor-pointer transition-all duration-200 ease-in-out relative"
             >
               Sign out
             </button>
           </li>
         ) : (
           <li className="lg:hidden mx-6">
-            <button className="min-w-[200px] font-inherit leading-4 m-0 overflow-visible uppercase appearance-none inline-block bg-[#8EE046] text-white outline-none border-none text-xs md:text-sm py-2 px-6 rounded-full cursor-pointer transition-all duration-200 ease-in-out relative">
-              <a
-                href="/login"
-                aria-label="Admin"
-                rel="noreferrer"
-              >
+            <button className="min-w-[200px] font-inherit leading-4 m-0 overflow-visible uppercase appearance-none inline-block bg-[#A8D978] text-white outline-none border-none text-xs md:text-sm py-2 px-6 rounded-full cursor-pointer transition-all duration-200 ease-in-out relative">
+              <a href="/login" aria-label="Admin" rel="noreferrer">
                 Sign in
               </a>
             </button>
@@ -143,7 +142,7 @@ export default function TopNav() {
         )}
         {isAdmin && (
           <li className="lg:hidden mx-6">
-            <button className="min-w-[200px] font-inherit leading-4 m-0 overflow-visible uppercase appearance-none inline-block bg-[#8EE046] text-white outline-none border-none text-xs md:text-sm py-2 px-6 rounded-full cursor-pointer transition-all duration-200 ease-in-out relative">
+            <button className="min-w-[200px] font-inherit leading-4 m-0 overflow-visible uppercase appearance-none inline-block bg-[#A8D978] text-white outline-none border-none text-xs md:text-sm py-2 px-6 rounded-full cursor-pointer transition-all duration-200 ease-in-out relative">
               <a
                 href="/admin/customers"
                 aria-label="Admin"
@@ -160,24 +159,20 @@ export default function TopNav() {
         {role ? (
           <button
             onClick={() => signOut()}
-            className="font-inherit leading-4 m-0 overflow-visible uppercase appearance-none inline-block bg-[#8EE046] text-white outline-none border-none text-xs md:text-sm py-2 px-6 rounded-full cursor-pointer transition-all duration-200 ease-in-out relative"
+            className="font-inherit leading-4 m-0 overflow-visible uppercase appearance-none inline-block bg-[#A8D978] text-white outline-none border-none text-xs md:text-sm py-2 px-6 rounded-full cursor-pointer transition-all duration-200 ease-in-out relative"
           >
             Sign out
           </button>
         ) : (
-          <button className="font-inherit leading-4 m-0 overflow-visible uppercase appearance-none inline-block bg-[#8EE046] text-white outline-none border-none text-xs md:text-sm py-2 px-6 rounded-full cursor-pointer transition-all duration-200 ease-in-out relative">
-            <a
-              href="/login"
-              aria-label="Admin"
-              rel="noreferrer"
-            >
+          <button className="font-inherit leading-4 m-0 overflow-visible uppercase appearance-none inline-block bg-[#A8D978] text-white outline-none border-none text-xs md:text-sm py-2 px-6 rounded-full cursor-pointer transition-all duration-200 ease-in-out relative">
+            <a href="/login" aria-label="Admin" rel="noreferrer">
               Sign in
             </a>
           </button>
         )}
 
         {isAdmin && (
-          <button className="font-inherit leading-4 m-0 overflow-visible uppercase appearance-none inline-block bg-[#8EE046] text-white outline-none border-none text-xs md:text-sm py-2 px-6 rounded-full cursor-pointer transition-all duration-200 ease-in-out relative">
+          <button className="font-inherit leading-4 m-0 overflow-visible uppercase appearance-none inline-block bg-[#A8D978] text-white outline-none border-none text-xs md:text-sm py-2 px-6 rounded-full cursor-pointer transition-all duration-200 ease-in-out relative">
             <a
               href="/admin"
               aria-label="Admin"
