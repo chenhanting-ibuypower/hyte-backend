@@ -1,19 +1,22 @@
-"use client"
+"use client";
 
 import Image from "next/image";
+import cn from "classnames";
 export default function YocaTitle({
   title,
   label,
   subtitle,
   tree,
+  className,
 }: {
   title: string;
-  label: string;
+  label?: string;
   subtitle: string;
   tree: number;
+  className?: string;
 }) {
   return (
-    <div className="text-white w-[150px]">
+    <div className={cn("text-white", className || "w-[150px]")}>
       <style jsx>{`
         h1 {
           overflow: hidden;
@@ -41,22 +44,24 @@ export default function YocaTitle({
           margin-right: -50%;
         }
       `}</style>
-      <div className="flex justify-end">
-        <Image
-          width={40}
-          height={40}
-          src="/yoca-comp/leaf-01.png"
-          alt="Homepage Image"
-        />
-        <div className="">{label}</div>
-        <Image
-          width={40}
-          height={40}
-          src="/yoca-comp/leaf-01.png"
-          alt="Homepage Image"
-          className="transform scale-x-[-1]"
-        />
-      </div>
+      {label && (
+        <div className="flex justify-end">
+          <Image
+            width={40}
+            height={40}
+            src="/yoca-comp/leaf-01.png"
+            alt="Homepage Image"
+          />
+          <div className="">{label}</div>
+          <Image
+            width={40}
+            height={40}
+            src="/yoca-comp/leaf-01.png"
+            alt="Homepage Image"
+            className="transform scale-x-[-1]"
+          />
+        </div>
+      )}
       <div className="flex items-center justify-center gap-x-4">
         {tree === 1 ? (
           <Image
@@ -85,7 +90,7 @@ export default function YocaTitle({
         <div className="text-2xl">{title}</div>
       </div>
       <div>
-        <h1>Heading</h1>
+        <h1>{subtitle}</h1>
       </div>
     </div>
   );

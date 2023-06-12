@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types';
-import ComputerDesktopIcon from '@heroicons/react/24/solid/ComputerDesktopIcon';
-import DeviceTabletIcon from '@heroicons/react/24/solid/DeviceTabletIcon';
-import PhoneIcon from '@heroicons/react/24/solid/PhoneIcon';
+import PropTypes from "prop-types";
+import ComputerDesktopIcon from "@heroicons/react/24/solid/ComputerDesktopIcon";
+import DeviceTabletIcon from "@heroicons/react/24/solid/DeviceTabletIcon";
+import PhoneIcon from "@heroicons/react/24/solid/PhoneIcon";
 import {
   Box,
   CardContent,
@@ -9,55 +9,59 @@ import {
   Stack,
   SvgIcon,
   Typography,
-  useTheme
-} from '@mui/material';
-import { Chart } from '@/components/chart';
+  useTheme,
+} from "@mui/material";
+import { Chart } from "@/components/chart";
+import YocaTitle from "@/components/yoca-title";
 
 const useChartOptions = (labels) => {
   const theme = useTheme();
 
   return {
     chart: {
-      background: 'transparent'
+      background: "transparent",
     },
     colors: [
       theme.palette.primary.main,
       theme.palette.success.main,
-      theme.palette.warning.main
+      theme.palette.warning.main,
     ],
     dataLabels: {
-      enabled: false
+      enabled: false,
     },
     labels,
     legend: {
-      show: false
+      show: false,
     },
     plotOptions: {
       pie: {
-        expandOnClick: false
-      }
+        donut: {
+          size: "85%",
+        },
+        expandOnClick: false,
+      },
     },
     states: {
       active: {
         filter: {
-          type: 'none'
-        }
+          type: "none",
+        },
       },
       hover: {
         filter: {
-          type: 'none'
-        }
-      }
+          type: "none",
+        },
+      },
     },
     stroke: {
-      width: 0
+      width: 0,
     },
     theme: {
-      mode: theme.palette.mode
+      mode: theme.palette.mode,
     },
     tooltip: {
-      fillSeriesColor: false
-    }
+      fillSeriesColor: false,
+    },
   };
 };
 
@@ -76,7 +80,7 @@ const iconMap = {
     <SvgIcon>
       <PhoneIcon />
     </SvgIcon>
-  )
+  ),
 };
 
 export const OverviewTraffic = (props) => {
@@ -84,8 +88,14 @@ export const OverviewTraffic = (props) => {
   const chartOptions = useChartOptions(labels);
 
   return (
-    <Box sx={sx}>
-      <CardHeader title="Traffic Source" />
+    <Box sx={{ ...sx, display: "flex", padding: "20px" }}>
+      <YocaTitle
+        title="總時數72"
+        subtitle="已學習小時數"
+        label="time"
+        tree={2}
+        className="w-[180px]"
+      ></YocaTitle>
       <CardContent>
         <Chart
           height={300}
@@ -101,34 +111,6 @@ export const OverviewTraffic = (props) => {
           spacing={2}
           sx={{ mt: 2 }}
         >
-          {chartSeries.map((item, index) => {
-            const label = labels[index];
-
-            return (
-              <Box
-                key={label}
-                sx={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center'
-                }}
-              >
-                {iconMap[label]}
-                <Typography
-                  sx={{ my: 1 }}
-                  variant="h6"
-                >
-                  {label}
-                </Typography>
-                <Typography
-                  color="text.secondary"
-                  variant="subtitle2"
-                >
-                  {item}%
-                </Typography>
-              </Box>
-            );
-          })}
         </Stack>
       </CardContent>
     </Box>
@@ -138,5 +120,5 @@ export const OverviewTraffic = (props) => {
 OverviewTraffic.propTypes = {
   chartSeries: PropTypes.array.isRequired,
   labels: PropTypes.array.isRequired,
-  sx: PropTypes.object
+  sx: PropTypes.object,
 };

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import {Box, CardContent, CardHeader} from '@mui/material';
+import YocaTitle from "@/components/yoca-title";
 
 const ApexChart = (props) => {
   const { chartSeries, labels, sx } = props;
@@ -77,8 +78,13 @@ const ApexChart = (props) => {
   };
 
   return (
-    <Box sx={{ height: '100%', ...sx }}>
-      <CardHeader title="Traffic Source" />
+    <Box sx={{ height: '100%', ...sx, display: "flex", padding: "20px"  }}>
+      <YocaTitle
+        title="適性分析"
+        subtitle="前五項分析評比"
+        tree={3}
+        className="w-[180px]"
+      ></YocaTitle>
       <CardContent>
         <div id="chart">
           <ReactApexChart

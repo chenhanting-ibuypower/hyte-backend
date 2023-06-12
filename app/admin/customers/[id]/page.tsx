@@ -12,8 +12,6 @@ import {
   Divider,
 } from "@mui/material";
 import { OverviewBudget } from "@/components/sections/overview/overview-budget";
-import { OverviewLatestOrders } from "@/components/sections/overview/overview-latest-orders";
-import { OverviewLatestProducts } from "@/components/sections/overview/overview-latest-products";
 import { OverviewSales } from "@/components/sections/overview/overview-sales";
 import { OverviewTasksProgress } from "@/components/sections/overview/overview-tasks-progress";
 import { OverviewTotalCustomers } from "@/components/sections/overview/overview-total-customers";
@@ -25,20 +23,21 @@ import SimplePie from "@/components/simple-pie";
 const now = new Date();
 
 const Page = () => (
-  <>
+  <div className="bg-[#71856b] h-screen">
     <Head>
       <title>Overview | Devias Kit</title>
     </Head>
     <Box
       component="main"
       sx={{
+        backgroundColor: "#71856b",
         flexGrow: 1,
         py: 8,
       }}
     >
       <Container maxWidth="xl">
         <Grid container spacing={3}>
-          <Grid xs={12} sm={6} lg={3}>
+          <Grid xs={12} sm={6} lg={3} hidden>
             <OverviewBudget
               difference={12}
               positive
@@ -46,7 +45,7 @@ const Page = () => (
               value="$24k"
             />
           </Grid>
-          <Grid xs={12} sm={6} lg={3}>
+          <Grid xs={12} sm={6} lg={3} hidden>
             <OverviewTotalCustomers
               difference={16}
               positive={false}
@@ -54,10 +53,10 @@ const Page = () => (
               value="1.6k"
             />
           </Grid>
-          <Grid xs={12} sm={6} lg={3}>
+          <Grid xs={12} sm={6} lg={3} hidden>
             <OverviewTasksProgress sx={{ height: "100%" }} value={75.5} />
           </Grid>
-          <Grid xs={12} sm={6} lg={3}>
+          <Grid xs={12} sm={6} lg={3} hidden>
             <OverviewTotalProfit sx={{ height: "100%" }} value="$15k" />
           </Grid>
           <Grid xs={12} lg={8} hidden>
@@ -107,23 +106,23 @@ const Page = () => (
             </Grid>
             <Grid xs={12} md={4}>
               <div className="flex items-center justify-center">
-              <YocaTitle
-                title="等級6"
-                subtitle="已到達等級"
-                label="level"
-                tree={2}
-              ></YocaTitle>
+                <YocaTitle
+                  title="等級6"
+                  subtitle="已到達等級"
+                  label="level"
+                  tree={2}
+                ></YocaTitle>
                 <SimplePie n={20} />
               </div>
             </Grid>
             <Grid xs={12} md={4}>
               <div className="flex items-center justify-center">
-              <YocaTitle
-                title="心情9.8"
-                subtitle="學習開心指數"
-                label="mood"
-                tree={2}
-              ></YocaTitle>
+                <YocaTitle
+                  title="心情9.8"
+                  subtitle="學習開心指數"
+                  label="mood"
+                  tree={2}
+                ></YocaTitle>
                 <SimplePie n={30} />
               </div>
             </Grid>
@@ -146,14 +145,14 @@ const Page = () => (
                 margin: "0 auto",
               }}
             />
-            <Grid xs={12} md={6}>
+            <Grid xs={12} md={6} sx={{ height: "40vh" }}>
               <OverviewTraffic
                 chartSeries={[63, 15, 22]}
                 labels={["Desktop", "Tablet", "Phone"]}
                 sx={{ height: "100%" }}
               />
             </Grid>
-            <Grid xs={12} md={6}>
+            <Grid xs={12} md={6} sx={{ height: "40vh" }}>
               <ApexChart
                 chartSeries={[20, 100, 40, 30, 50]}
                 labels={["數學", "動畫", "程式", "設計思考", "物理"]}
@@ -161,12 +160,10 @@ const Page = () => (
               />
             </Grid>
           </Card>
-          <Grid xs={12} md={6} lg={4}></Grid>
-          <Grid xs={12} md={12} lg={8}></Grid>
         </Grid>
       </Container>
     </Box>
-  </>
+  </div>
 );
 
 export default Page;
