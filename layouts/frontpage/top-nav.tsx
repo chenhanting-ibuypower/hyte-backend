@@ -114,7 +114,7 @@ export default function TopNav() {
       </span>
       <ul
         className={cn(
-          "nav-item flex flex-col lg:flex-row text-gray-800 lg:text-[#739c5b]"
+          "nav-item text-gray-800 lg:text-[#739c5b]", menu ? "flex flex-col lg:flex-row" : "hidden"
         )}
       >
         <li className="mx-6">DESIGN THINKING</li>
