@@ -68,7 +68,13 @@ export default function Learning() {
             }
 
             .MuiRating-root span {
-              font-size: 60px;
+              font-size: 40px;
+            }
+            
+            @media (min-width: 576px) {
+              .MuiRating-root span {
+                font-size: 60px;
+              } 
             }
           `}</style>
           <Typography component="legend">
@@ -79,7 +85,7 @@ export default function Learning() {
                 src="/learning_evaluation.png"
                 alt="Homepage Image"
               />
-              <span className="text-3xl text-[#77846e] ml-2">
+              <span className="text-lg md:text-3xl text-[#77846e] ml-2">
                 學到東西的多寡:
               </span>
             </div>
@@ -99,7 +105,7 @@ export default function Learning() {
                 src="/learning_happiness.png"
                 alt="Homepage Image"
               />
-              <span className="text-3xl text-[#77846e] ml-2">
+              <span className="text-lg md:text-3xl text-[#77846e] ml-2">
                 學習開心的程度:
               </span>
             </div>
