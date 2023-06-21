@@ -1,7 +1,7 @@
 "use client";
 
-import ArrowDownOnSquareIcon from "@heroicons/react/20/solid/ArrowDownOnSquareIcon";
-import ArrowUpOnSquareIcon from "@heroicons/react/20/solid/ArrowUpOnSquareIcon";
+import ArrowDownOnSquareIcon from "@heroicons/react/20/solid/ArrowDownTrayIcon";
+import ArrowUpOnSquareIcon from "@heroicons/react/20/solid/ArrowUpTrayIcon";
 import ArrowLeftIcon from "@heroicons/react/20/solid/ArrowLeftIcon";
 import ArrowRightIcon from "@heroicons/react/20/solid/ArrowRightIcon";
 import ArrowSmallLeftIcon from "@heroicons/react/20/solid/ArrowSmallLeftIcon";
@@ -118,23 +118,24 @@ function MuiTable({ customers }: { customers: TableCustomer[] }) {
   );
 
   const paginationStyle =
-    "ml-0 leading-tight border border-gray-300 bg-white hover:bg-gray-100 hover:text-gray-700 border-gray-700";
+    "ml-0 leading-tight border border-[#293D1C] bg-white hover:bg-[#ecffdd] hover:text-gray-700";
 
   return (
     <Box
       component="main"
       sx={{
-        flexGrow: 1,
         py: 8,
+        flexGrow: 1,
       }}
     >
       <Container maxWidth="xl">
-        <Stack spacing={3}>
+        <Stack spacing={3} style={{ fontFamily: "LithosPro" }}>
           <Stack direction="row" justifyContent="space-between" spacing={4}>
             <Stack spacing={1}>
-              <Typography variant="h4">Customers</Typography>
+              <Typography variant="h4" className="text-[#293D1C] font-sans">Customers</Typography>
               <Stack alignItems="center" direction="row" spacing={1}>
                 <Button
+                  className="text-[#293D1C] font-sans"
                   color="inherit"
                   startIcon={
                     <SvgIcon fontSize="small">
@@ -145,6 +146,7 @@ function MuiTable({ customers }: { customers: TableCustomer[] }) {
                   Import
                 </Button>
                 <Button
+                  className="text-[#293D1C] font-sans"
                   color="inherit"
                   startIcon={
                     <SvgIcon fontSize="small">
@@ -165,7 +167,8 @@ function MuiTable({ customers }: { customers: TableCustomer[] }) {
                 }
                 variant="contained"
                 style={{
-                  backgroundColor: "rgb(99, 102, 241)",
+                  borderRadius: "10px",
+                  backgroundColor: "#74846c",
                 }}
               >
                 Add
@@ -187,7 +190,7 @@ function MuiTable({ customers }: { customers: TableCustomer[] }) {
                         <th
                           key={header.id}
                           colSpan={header.colSpan}
-                          className="px-6 py-3"
+                          className="px-6 py-3 text-[#293D1C]"
                         >
                           {header.isPlaceholder ? null : (
                             <div
@@ -259,7 +262,7 @@ function MuiTable({ customers }: { customers: TableCustomer[] }) {
                     onClick={() => table.setPageIndex(0)}
                     disabled={!table.getCanPreviousPage()}
                   >
-                    <SvgIcon fontSize="small" sx={{ color: "neutral.500" }}>
+                    <SvgIcon fontSize="small" sx={{ color: "#293D1C" }}>
                       <ArrowLeftIcon />
                     </SvgIcon>
                   </button>
@@ -272,7 +275,7 @@ function MuiTable({ customers }: { customers: TableCustomer[] }) {
                     }}
                     disabled={!table.getCanPreviousPage()}
                   >
-                    <SvgIcon fontSize="small" sx={{ color: "neutral.500" }}>
+                    <SvgIcon fontSize="small" sx={{ color: "#293D1C" }}>
                       <ArrowSmallLeftIcon />
                     </SvgIcon>
                   </button>
@@ -282,13 +285,12 @@ function MuiTable({ customers }: { customers: TableCustomer[] }) {
                     <button
                       className={cn(
                         paginationStyle,
-                        "px-[16px] py-[9px]",
+                        "px-[16px] py-[9px] leading-4",
                         table.getState().pagination.pageIndex + 1 === page
-                          ? "!bg-gray-400 text-white"
-                          : "text-gray-400"
+                          ? "!bg-[#819671] text-white"
+                          : "text-[#293D1C]"
                       )}
                       onClick={() => {
-                        console.log("current page:", page - 1);
                         table.setPageIndex(page - 1);
                       }}
                       disabled={!table.getCanPreviousPage()}
@@ -303,7 +305,7 @@ function MuiTable({ customers }: { customers: TableCustomer[] }) {
                     onClick={() => table.nextPage()}
                     disabled={!table.getCanNextPage()}
                   >
-                    <SvgIcon fontSize="small" sx={{ color: "neutral.500" }}>
+                    <SvgIcon fontSize="small" sx={{ color: "#293D1C" }}>
                       <ArrowSmallRightIcon />
                     </SvgIcon>
                   </button>
@@ -314,7 +316,7 @@ function MuiTable({ customers }: { customers: TableCustomer[] }) {
                     onClick={() => table.setPageIndex(table.getPageCount() - 1)}
                     disabled={!table.getCanNextPage()}
                   >
-                    <SvgIcon fontSize="small" sx={{ color: "neutral.500" }}>
+                    <SvgIcon fontSize="small" sx={{ color: "#293D1C" }}>
                       <ArrowRightIcon />
                     </SvgIcon>
                   </button>
