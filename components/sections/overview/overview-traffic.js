@@ -22,10 +22,13 @@ const useChartOptions = (labels) => {
       background: "transparent",
     },
     colors: [
-      theme.palette.primary.main,
-      theme.palette.success.main,
-      theme.palette.warning.main,
+      "#fcf85b",
+      "#ffdf8f",
+      "#fec491",
+      "#efd8ff",
+      "#abdbfb"
     ],
+
     dataLabels: {
       enabled: false,
     },
@@ -37,6 +40,15 @@ const useChartOptions = (labels) => {
       pie: {
         donut: {
           size: "85%",
+          labels: {
+            show: false,
+            total: {
+              show: true,
+              fontSize: "20px",
+              fontWeight: "bold",
+              color: "black",
+            },
+          },
         },
         expandOnClick: false,
       },

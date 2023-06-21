@@ -36,45 +36,7 @@ const Page = () => (
       }}
     >
       <Container maxWidth="xl">
-        <Grid container spacing={3}>
-          <Grid xs={12} sm={6} lg={3} hidden>
-            <OverviewBudget
-              difference={12}
-              positive
-              sx={{ height: "100%" }}
-              value="$24k"
-            />
-          </Grid>
-          <Grid xs={12} sm={6} lg={3} hidden>
-            <OverviewTotalCustomers
-              difference={16}
-              positive={false}
-              sx={{ height: "100%" }}
-              value="1.6k"
-            />
-          </Grid>
-          <Grid xs={12} sm={6} lg={3} hidden>
-            <OverviewTasksProgress sx={{ height: "100%" }} value={75.5} />
-          </Grid>
-          <Grid xs={12} sm={6} lg={3} hidden>
-            <OverviewTotalProfit sx={{ height: "100%" }} value="$15k" />
-          </Grid>
-          <Grid xs={12} lg={8} hidden>
-            <OverviewSales
-              chartSeries={[
-                {
-                  name: "This year",
-                  data: [18, 16, 5, 8, 3, 14, 14, 16, 17, 19, 18, 20],
-                },
-                {
-                  name: "Last year",
-                  data: [12, 11, 4, 6, 2, 9, 9, 10, 11, 12, 13, 13],
-                },
-              ]}
-              sx={{ height: "100%" }}
-            />
-          </Grid>
-
+        <Grid container spacing={3} className="pt-[100px]">
           <Card
             sx={{
               display: "flex",
@@ -147,7 +109,7 @@ const Page = () => (
             />
             <Grid xs={12} md={6} sx={{ height: "40vh" }}>
               <OverviewTraffic
-                chartSeries={[63, 15, 22]}
+                chartSeries={[11, 31, 21, 5, 32]}
                 labels={["Desktop", "Tablet", "Phone"]}
                 sx={{ height: "100%" }}
               />

@@ -33,6 +33,7 @@ const ChartComponent = ({ n }: { n: number }) => {
           },
         },
       },
+      colors: ["#fcf85b", "#ffffff"],
       annotations: {
         points: [
           {
