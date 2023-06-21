@@ -2,7 +2,6 @@
 
 import Head from "next/head";
 import SignOut from "@/components/sign-out";
-import { subDays, subHours } from "date-fns";
 import YocaTitle from "@/components/yoca-title";
 import {
   Box,
@@ -11,11 +10,6 @@ import {
   Unstable_Grid2 as Grid,
   Divider,
 } from "@mui/material";
-import { OverviewBudget } from "@/components/sections/overview/overview-budget";
-import { OverviewSales } from "@/components/sections/overview/overview-sales";
-import { OverviewTasksProgress } from "@/components/sections/overview/overview-tasks-progress";
-import { OverviewTotalCustomers } from "@/components/sections/overview/overview-total-customers";
-import { OverviewTotalProfit } from "@/components/sections/overview/overview-total-profit";
 import { OverviewTraffic } from "@/components/sections/overview/overview-traffic";
 import ApexChart from "@/components/sections/overview/radar-chart";
 import SimplePie from "@/components/simple-pie";

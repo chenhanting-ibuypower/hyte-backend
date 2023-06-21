@@ -59,7 +59,7 @@ export function Ranks() {
             <p
               className={cn(
                 "border m-4 p-4 text-[#ffffff]",
-                i === 0 ? "text-[#365125] bg-[#a8d978] border-green-400" : "text-[#293d1c] bg-[#f0f6e8]",
+                i === 0 ? "text-[#365125] bg-[#a8d978] border-green-400" : "text-[#D0EACE] bg-[#f0f6e8]",
                 roundedAngle(i)
               )}
             >
