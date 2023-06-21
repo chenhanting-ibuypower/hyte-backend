@@ -26,7 +26,7 @@ export const SideNav = (props) => {
   const content = (
     <Scrollbar
       sx={{
-        backgroundColor: "rgb(28, 37, 54)",
+        backgroundColor: "#74846c",
         height: "100%",
         "& .simplebar-content": {
           height: "100%",
@@ -50,7 +50,7 @@ export const SideNav = (props) => {
             sx={{
               display: "inline-flex",
               height: 32,
-              width: 32,
+              width: 40,
             }}
           >
             <Logo />
