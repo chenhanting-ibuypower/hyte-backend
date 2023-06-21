@@ -48,9 +48,7 @@ export default function TopNav() {
           }
 
           ul.nav-item.flex
-            li:not(:last-child):not(:nth-last-child(2)):not(
-              :nth-last-child(3)
-            ):not(.lg\\\:hidden)::after {
+            li:not(:last-child):not(:nth-last-child(2)):not(.lg\\\:hidden)::after {
             content: "";
             position: absolute;
             top: 50%;
@@ -114,7 +112,7 @@ export default function TopNav() {
       </span>
       <ul
         className={cn(
-          "nav-item text-gray-800 lg:text-[#739c5b]", menu ? "flex flex-col lg:flex-row" : "hidden"
+          "nav-item text-gray-800 lg:text-[#739c5b]", (menu || lgUp) ? "flex flex-col lg:flex-row" : "hidden"
         )}
       >
         <li className="mx-6">DESIGN THINKING</li>
