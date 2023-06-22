@@ -100,7 +100,7 @@ export const OverviewTraffic = (props) => {
   const chartOptions = useChartOptions(labels);
 
   return (
-    <Box sx={{ ...sx, display: "flex", padding: "20px" }}>
+    <Box sx={{ ...sx, padding: "20px" }} className="flex md:block xl:flex">
       <YocaTitle
         title="總時數72"
         subtitle="已學習小時數"
@@ -108,7 +108,7 @@ export const OverviewTraffic = (props) => {
         tree={2}
         className="w-[180px]"
       ></YocaTitle>
-      <CardContent>
+      <CardContent className="min-w-[400px]">
         <Chart
           height={300}
           options={chartOptions}

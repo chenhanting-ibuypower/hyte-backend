@@ -17,6 +17,7 @@ const ApexChart = (props) => {
   ];
   const optionsData = {
     chart: {
+      background: "transparent",
       height: 350,
       type: 'radar',
       toolbar: {
@@ -35,7 +36,7 @@ const ApexChart = (props) => {
         polygons: {
           strokeColors: ['#e9e9e9', 'transparent', '#ffffff'],
           fill: {
-            colors: ['#f8f8f8', '#fff'],
+            colors: ['transparent'],
           },
         },
       },
@@ -46,7 +47,7 @@ const ApexChart = (props) => {
       size: 4,
       colors: ['#fff'],
       strokeColor: '#b4c3ac',
-      strokeWidth: 2,
+      strokeWidth: 4,
     },
     tooltip: {
       y: {
@@ -64,7 +65,8 @@ const ApexChart = (props) => {
       },
     },
     yaxis: {
-      tickAmount: 5,
+      tickAmount: 7,
+      show: false,
       labels: {
         formatter: function (val, i) {
           if (i % 2 === 0) {
@@ -78,7 +80,7 @@ const ApexChart = (props) => {
   };
 
   return (
-    <Box sx={{ height: '100%', ...sx, display: "flex", padding: "20px"  }}>
+    <Box sx={{ height: '100%', ...sx, padding: "20px"  }}  className="flex md:block xl:flex">
       <YocaTitle
         title="適性分析"
         subtitle="前五項分析評比"
@@ -86,7 +88,7 @@ const ApexChart = (props) => {
         className="w-[180px]"
       ></YocaTitle>
       <CardContent>
-        <div id="chart">
+        <div id="chart" className="min-w-[400px]">
           <ReactApexChart
             options={optionsData}
             series={seriesData}

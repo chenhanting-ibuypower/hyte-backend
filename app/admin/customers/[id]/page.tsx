@@ -92,6 +92,7 @@ const Page = () => (
               width: "100%",
               backgroundColor: "#829671",
             }}
+            className="h-[120vh] lg:h-[70vh] md:pb-[140px]"
           >
             <Divider
               sx={{
