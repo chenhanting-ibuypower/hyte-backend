@@ -17,7 +17,7 @@ export default function Login() {
               height={20}
             />
           </Link>
-          <h3 className="text-xl font-semibold">Sign Up</h3>
+          <h3 className="text-xl font-semibold text-[#74846C]">Sign Up</h3>
           <p className="text-sm text-gray-500">
             Create an account with your email and password
           </p>

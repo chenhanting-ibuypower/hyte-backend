@@ -115,7 +115,7 @@ export default function Form({ type }: { type: "login" | "register" }) {
         </div>
         <a
           href="#"
-          className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"
+          className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500 text-[#74846C]"
         >
           Forgot password?
         </a>
@@ -125,7 +125,7 @@ export default function Form({ type }: { type: "login" | "register" }) {
         className={`${
           loading
             ? "cursor-not-allowed border-gray-200 bg-gray-100"
-            : "border-black bg-black text-white hover:bg-white hover:text-black"
+            : "border-black bg-[#74846C] text-white hover:bg-white hover:text-black"
         } flex h-10 w-full items-center justify-center rounded-md border text-sm transition-all focus:outline-none`}
       >
         {loading ? (
@@ -145,7 +145,7 @@ export default function Form({ type }: { type: "login" | "register" }) {
       ) : (
         <p className="text-center text-sm text-gray-600">
           Already have an account?{" "}
-          <Link href="/login" className="font-semibold text-gray-800">
+          <Link href="/login" className="font-semibold text-[#74846C]">
             Sign in
           </Link>{" "}
           instead.
