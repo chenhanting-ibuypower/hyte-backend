@@ -84,7 +84,7 @@ const ApexChart = (props) => {
   };
 
   return (
-    <Box sx={{ height: '100%', ...sx, padding: "20px"  }}  className="flex md:block xl:flex">
+    <Box sx={{ height: '100%', ...sx, padding: "20px"  }}  className="flex">
       <YocaTitle
         title="適性分析"
         subtitle="前五項分析評比"
@@ -92,7 +92,7 @@ const ApexChart = (props) => {
         className="w-[180px]"
       ></YocaTitle>
       <CardContent>
-        <div id="chart" className="min-w-[400px]">
+        <div id="chart" className="min-w-[30vw]">
           <ReactApexChart
             options={optionsData}
             series={seriesData}

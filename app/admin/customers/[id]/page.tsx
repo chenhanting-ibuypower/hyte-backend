@@ -105,7 +105,7 @@ const Page = () => (
             <Grid xs={12} md={6} sx={{ height: "40vh" }}>
               <OverviewTraffic
                 chartSeries={[11, 31, 21, 5, 32]}
-                labels={["Desktop", "Tablet", "Phone"]}
+                labels={["數學", "動畫", "程式", "設計思考", "物理"]}
                 sx={{ height: "100%" }}
               />
             </Grid>

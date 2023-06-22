@@ -2,34 +2,21 @@ import PropTypes from "prop-types";
 import ComputerDesktopIcon from "@heroicons/react/24/solid/ComputerDesktopIcon";
 import DeviceTabletIcon from "@heroicons/react/24/solid/DeviceTabletIcon";
 import PhoneIcon from "@heroicons/react/24/solid/PhoneIcon";
-import {
-  Box,
-  CardContent,
-  CardHeader,
-  Stack,
-  SvgIcon,
-  Typography,
-  useTheme,
-} from "@mui/material";
+import { Box, CardContent, Stack, SvgIcon, useTheme } from "@mui/material";
 import { Chart } from "@/components/chart";
 import YocaTitle from "@/components/yoca-title";
+
+const colors = ["#fcf85b", "#ffdf8f", "#fec491", "#efd8ff", "#abdbfb"];
 
 const useChartOptions = (labels) => {
   const theme = useTheme();
 
   return {
     chart: {
-      foreColor: '#ffffff',
+      foreColor: "#ffffff",
       background: "transparent",
     },
-    colors: [
-      "#fcf85b",
-      "#ffdf8f",
-      "#fec491",
-      "#efd8ff",
-      "#abdbfb"
-    ],
-
+    colors,
     dataLabels: {
       enabled: false,
     },
@@ -68,7 +55,7 @@ const useChartOptions = (labels) => {
     },
     stroke: {
       width: 2,
-      colors:['#fff']
+      colors: ["#fff"],
     },
     theme: {
       mode: theme.palette.mode,
@@ -102,15 +89,29 @@ export const OverviewTraffic = (props) => {
   const chartOptions = useChartOptions(labels);
 
   return (
-    <Box sx={{ ...sx, padding: "20px" }} className="flex md:block xl:flex">
-      <YocaTitle
-        title="總時數72"
-        subtitle="已學習小時數"
-        label="time"
-        tree={2}
-        className="w-[180px]"
-      ></YocaTitle>
-      <CardContent className="min-w-[400px]">
+    <Box sx={{ ...sx, padding: "20px" }} className="flex">
+      <div className="block">
+        <YocaTitle
+          title="總時數72"
+          subtitle="已學習小時數"
+          label="time"
+          tree={2}
+          className="w-[180px]"
+        ></YocaTitle>
+        <div className="flex flex-col gap-y-2 mt-4">
+          {colors.map((color, key) => (
+            <div className="flex gap-x-2" key={key}>
+              <div
+                class="w-4 h-4 rounded-full"
+                style={{ backgroundColor: color }}
+              ></div>
+              <span className="text-white">{labels[key]}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <CardContent className="min-w-[30vw]">
         <Chart
           height={300}
           options={chartOptions}
@@ -124,8 +125,7 @@ export const OverviewTraffic = (props) => {
           justifyContent="center"
           spacing={2}
           sx={{ mt: 2 }}
-        >
-        </Stack>
+        ></Stack>
       </CardContent>
     </Box>
   );

@@ -62,7 +62,7 @@ export default function YocaTitle({
           />
         </div>
       )}
-      <div className="flex items-center justify-center gap-x-4">
+      <div className="w-[inherit] flex items-center justify-center gap-x-4">
         {tree === 1 ? (
           <Image
             width={30}
