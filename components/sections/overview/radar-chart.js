@@ -29,6 +29,10 @@ const ApexChart = (props) => {
     },
     dataLabels: {
       enabled: false,
+      background: {
+        enabled: true,
+        borderRadius: 6,
+      }
     },
     plotOptions: {
       radar: {

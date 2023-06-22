@@ -19,6 +19,7 @@ const useChartOptions = (labels) => {
 
   return {
     chart: {
+      foreColor: '#ffffff',
       background: "transparent",
     },
     colors: [
@@ -66,7 +67,8 @@ const useChartOptions = (labels) => {
       },
     },
     stroke: {
-      width: 0,
+      width: 2,
+      colors:['#fff']
     },
     theme: {
       mode: theme.palette.mode,
