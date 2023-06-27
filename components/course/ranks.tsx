@@ -42,15 +42,15 @@ export function Ranks() {
       : "rounded-br-3xl rounded-tl-3xl border-r-4";
 
   return (
-    <div className="absolute top-0 left-[25%] sm:left-[15%] md:left-[10%] lg:left-[55%] mt-8">
+    <div className="absolute top-[2.5%] left-[25%] sm:left-[15%] md:left-[10%] lg:left-[55%] mt-8 w-[300px]">
       {ranks.map((rank, i) => (
         <div
           key={`rank-${i}`}
           style={{
-            transform: lgUp && i % 2 !== 0 ? "translateX(-130%)" : "none",
+            transform: lgUp && i % 2 !== 0 ? "translateX(-150%)" : "none",
           }}
           className={cn(
-            "min-w-[90%] md:min-w-2/3 my-[160px] w-1/3 border-separate border-spacing-2 border border-t-4",
+            "min-w-[90%] md:min-w-2/3 my-[225px] w-1/3 border-separate border-spacing-2 border border-t-4",
             i === 0 ? "border-[#c0f1a0]" : "border-[#f0f6e8]",
             roundedAngle(i)
           )}
@@ -64,9 +64,8 @@ export function Ranks() {
               )}
             >
               <span>
-                RANK {i + 1}: {rank.rank}
+                level {i + 1}
               </span>
-              <div className="my-4">{rank.description}</div>
             </p>
           </Link>
         </div>

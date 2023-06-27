@@ -23,7 +23,7 @@ export default function Learning() {
     const startIdleTimer = () => {
       timeoutId = setTimeout(() => {
         setModal(true);
-      }, 10000); // 30 seconds
+      }, 60000); // 30 seconds
     };
 
     const resetIdleTimer = () => {
@@ -53,12 +53,12 @@ export default function Learning() {
   return (
     <>
       <div className="l1 image-container relative lg:px-8">
-        <img src="/learning-01.png" alt="Homepage Image" />
+        <img src="/L1.png" alt="Homepage Image" />
       </div>
       <div className="flex h-screen">
         <div className="w-screen h-screen flex flex-col space-y-5 justify-center items-center">
           <iframe
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0"
+            src="https://www.youtube.com/embed/0ewWkfBA3vw"
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
@@ -67,7 +67,21 @@ export default function Learning() {
         </div>
       </div>
       <div className="l1 image-container relative lg:px-8">
-        <img src="/learning-02.png" alt="Homepage Image" />
+        <img src="/L2.png" alt="Homepage Image" />
+      </div>
+      <div className="flex h-screen">
+        <div className="w-screen h-screen flex flex-col space-y-5 justify-center items-center">
+          <iframe
+            src="https://www.youtube.com/embed/xE1ExOCdUnw"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="w-full max-w-screen-lg aspect-video"
+          ></iframe>
+        </div>
+      </div>
+      <div className="l1 image-container relative lg:px-8">
+        <img src="/L3.jpg" alt="Homepage Image" />
       </div>
       <div className="l1 image-container relative flex justify-center">
         <Image

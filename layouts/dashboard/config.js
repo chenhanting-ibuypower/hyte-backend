@@ -34,7 +34,8 @@ export const items = [
       <SvgIcon fontSize="small">
         <UserIcon />
       </SvgIcon>
-    )
+    ),
+    disabled: true
   },
   {
     title: 'Settings',
@@ -43,7 +44,8 @@ export const items = [
       <SvgIcon fontSize="small">
         <CogIcon />
       </SvgIcon>
-    )
+    ),
+    disabled: true
   },
   {
     title: 'Login',
@@ -52,7 +54,8 @@ export const items = [
       <SvgIcon fontSize="small">
         <LockClosedIcon />
       </SvgIcon>
-    )
+    ),
+    disabled: true
   },
   {
     title: 'Register',
@@ -61,6 +64,7 @@ export const items = [
       <SvgIcon fontSize="small">
         <UserPlusIcon />
       </SvgIcon>
-    )
+    ),
+    disabled: true
   },
 ];

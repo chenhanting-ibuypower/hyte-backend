@@ -9,17 +9,17 @@ export const SideNavItem = (props) => {
     ? external
       ? {
         component: 'a',
-        href: path,
+        href: disabled ? "/admin" : path,
         target: '_blank'
       }
       : {
         component: NextLink,
-        href: path
+        href: disabled ? "/admin" : path,
       }
     : {};
 
   return (
-    <li>
+    <li className="cursor-not-allowed">
       <ButtonBase
         sx={{
           alignItems: 'center',
