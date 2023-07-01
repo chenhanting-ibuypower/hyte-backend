@@ -102,14 +102,14 @@ const Page = () => (
                 margin: "0 auto",
               }}
             />
-            <Grid xs={12} md={6} sx={{ height: "40vh" }}>
+            <Grid xs={12} md={5.5} sx={{ height: "40vh" }}>
               <OverviewTraffic
                 chartSeries={[11, 31, 21, 5, 32]}
                 labels={["數學", "動畫", "程式", "設計思考", "物理"]}
                 sx={{ height: "100%" }}
               />
             </Grid>
-            <Grid xs={12} md={6} sx={{ height: "40vh" }}>
+            <Grid xs={12} md={6.5} sx={{ height: "40vh" }}>
               <ApexChart
                 chartSeries={[20, 100, 40, 30, 50]}
                 labels={["數學", "動畫", "程式", "設計思考", "物理"]}

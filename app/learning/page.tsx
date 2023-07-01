@@ -33,6 +33,7 @@ export default function Learning() {
     };
 
     const handleMouseMove = () => {
+      console.log("mouse move")
       resetIdleTimer();
     };
 
