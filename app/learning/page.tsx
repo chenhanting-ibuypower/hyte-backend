@@ -54,7 +54,7 @@ export default function Learning() {
   return (
     <>
       <div className="l1 image-container relative lg:px-8">
-        <img src="/L1.png" alt="Homepage Image" />
+        <img src="/t-01.png" alt="Homepage Image" />
       </div>
       <div className="flex h-screen">
         <div className="w-screen h-screen flex flex-col space-y-5 justify-center items-center">
@@ -68,7 +68,7 @@ export default function Learning() {
         </div>
       </div>
       <div className="l1 image-container relative lg:px-8">
-        <img src="/L2.png" alt="Homepage Image" />
+        <img src="/t-02.png" alt="Homepage Image" />
       </div>
       <div className="flex h-screen">
         <div className="w-screen h-screen flex flex-col space-y-5 justify-center items-center">
@@ -82,15 +82,7 @@ export default function Learning() {
         </div>
       </div>
       <div className="l1 image-container relative lg:px-8">
-        <img src="/L3.jpg" alt="Homepage Image" />
-      </div>
-      <div className="l1 image-container relative flex justify-center">
-        <Image
-          width={400}
-          height={400}
-          src="/learning-feedback.png"
-          alt="Homepage Image"
-        />
+        <img src="/t-03.jpg" alt="Homepage Image" />
       </div>
       <div className="w-full flex justify-center my-6">
         <button
